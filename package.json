@@ -1,0 +1,23 @@
+{
+  "name": "pro-shop",
+  "version": "1.0.0",
+  "description": "eCommerce application build with the MERN stack",
+  "homepage": "https://github.com/Miskat362/pro-shop#readme",
+  "bugs": {
+    "url": "https://github.com/Miskat362/pro-shop/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Miskat362/pro-shop.git"
+  },
+  "license": "MIT",
+  "author": "Miskat Ahmmed",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
