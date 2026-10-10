@@ -92,3 +92,5 @@ const CartScreen = () => {
         </Row>
     );
 };
+
+export default CartScreen;

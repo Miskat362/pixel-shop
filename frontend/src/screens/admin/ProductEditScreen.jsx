@@ -23,7 +23,7 @@ const ProductEditScreen = () => {
     const [countInStock, setCountInStock] = useState('');
     const [description, setDescription] = useState('');
 
-    const { data: product, isLoading, error } = useGetProductDetailsQuery(productId);
+    const { data: product, isLoading, refetch, error } = useGetProductDetailsQuery(productId);
     const [updateProduct, { isLoading: loadingUpdate }] = useUpdateProductMutation();
     const [uploadProductImage, { isLoading: loadingUpload }] = useUploadProductImageMutation();
     
@@ -36,28 +36,27 @@ const ProductEditScreen = () => {
             setCategory(product.category);
             setCountInStock(product.countInStock);
             setDescription(product.description);
-        } else {
-            navigate('/login');
         }
     }, [product]);
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        await updateProduct({
-            productId,
-            name,
-            price,
-            image,
-            brand,
-            category,
-            countInStock,
-            description,
-        });
-        if(updateProduct.error){
-            toast.error(updateProduct.error.message);
-        } else {
-            toast.success('Product updated successfully');
+        try {
+            await updateProduct({
+                productId,
+                name,
+                price,
+                image,
+                brand,
+                category,
+                countInStock,
+                description,
+            }).unwrap();
+            toast.success('Product updated');
+            refetch();
             navigate('/admin/productlist');
+        } catch (err) {
+            toast.error(err?.data?.message || err.error);
         }
     };
 

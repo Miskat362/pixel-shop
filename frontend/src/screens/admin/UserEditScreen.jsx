@@ -26,8 +26,6 @@ const UserEditScreen = () => {
             setName(user.name);
             setEmail(user.email);
             setIsAdmin(user.isAdmin);
-        } else {
-            navigate('/login');
         }
     }, [user]);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import {
     Button,
     Row,
@@ -64,6 +64,7 @@ const OrderScreen = () => {
             }
         });
     }
+    // eslint-disable-next-line no-unused-vars
     async function onApproveTest(data, actions) {
         await payOrder({ orderId, details: { payer: {} } });
         refetch();
@@ -181,9 +182,9 @@ const OrderScreen = () => {
                                     {loadingPay && <Loader />}
                                     {isPending ? (<Loader />) : (
                                         <div>
-                                            {/* <Button onClick={onApproveTest} style={{ marginBottom: '10px' }}>
+                                            <Button onClick={onApproveTest} style={{ marginBottom: '10px' }}>
                                                 Test Pay Order
-                                            </Button> */}
+                                            </Button>
                                             <div>
                                                 <PayPalButtons
                                                     createOrder={createOrder}

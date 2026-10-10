@@ -1,4 +1,5 @@
-import { LinkContainer, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
 import { Table, Button, Row, Col} from 'react-bootstrap';
 import { 
     useGetProductsQuery,
@@ -65,7 +66,7 @@ const ProductListScreen = () => {
         {isLoading ? (
             <Loader />
         ) : error ? (
-            <Message variant='danger'>{error.data.message}</Message>
+            <Message variant='danger'>{error?.data?.message || error?.error}</Message>
         ) : (
             <>
             <Table striped bordered hover responsive className='table-sm'>

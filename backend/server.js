@@ -5,7 +5,7 @@ dotenv.config();
 import cookieParser from 'cookie-parser';
 import connectDB from './config/db.js';
 import productRoutes from './routes/productRoutes.js';
-import userRoutes from './routes/userRoute.js';
+import userRoutes from './routes/userRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
@@ -29,7 +29,7 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/upload', uploadRoutes);
 
 app.get('/api/config/paypal', (req, res) => {
-  res.json({ clientId: process.env.PAYPAL_CLIENT_ID });
+  res.json({ clientId: process.env.PAYPAL_CLIENT_ID || 'sb' });
 });
 
 const __dirname = path.resolve();

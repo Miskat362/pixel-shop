@@ -6,7 +6,8 @@ import { FaTimes } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
-import { useGetMyOrdersQuery, useProfileMutation } from '../slices/userApiSlice';
+import { useProfileMutation } from '../slices/userApiSlice';
+import { useGetMyOrdersQuery } from '../slices/ordersApiSlice';
 import { setCredentials } from '../slices/authSlice';
 
 const ProfileScreen = () => {
@@ -125,14 +126,14 @@ const ProfileScreen = () => {
                                         {order.isPaid ? (
                                             order.paidAt.substring(0, 10)
                                         ) : (
-                                            <i className='fas fa-times' style={{ color: 'red' }}></i>
+                                            <FaTimes style={{ color: 'red' }} />
                                         )}
                                     </td>
                                     <td>
                                         {order.isDelivered ? (
                                             order.deliveredAt.substring(0, 10)
                                         ) : (
-                                            <i className='fas fa-times' style={{ color: 'red' }}></i>
+                                            <FaTimes style={{ color: 'red' }} />
                                         )}
                                     </td>
                                     <td>
