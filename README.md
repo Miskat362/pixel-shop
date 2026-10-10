@@ -1,4 +1,4 @@
-# Pixel Shop (ProShop)
+# Pixel Shop
 
 A full-stack eCommerce web application built with the MERN stack (MongoDB, Express, React, Node.js) and Redux Toolkit.
 
